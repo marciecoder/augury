@@ -14,8 +14,9 @@ plugins {
 	id "com.palantir.docker" version "0.22.1"
 }
 
+defaultTasks 'clean', 'build', 'docker'
 
-group = 'com.github.spellbook'
+group = 'com.github.marciecoder.spellbook'
 version = '0.0.1'
 sourceCompatibility = '1.8'
 
@@ -44,14 +45,6 @@ ext {
 	set('springCloudVersion', "Hoxton.RC1")
 }
 
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
-}
-
 dependencyManagement {
 	imports {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
@@ -60,4 +53,12 @@ dependencyManagement {
 
 test {
 	useJUnitPlatform()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
 }

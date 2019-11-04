@@ -1,4 +1,4 @@
-package com.github.spellbook.augury;
+package com.github.marciecoder.spellbook.augury;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
